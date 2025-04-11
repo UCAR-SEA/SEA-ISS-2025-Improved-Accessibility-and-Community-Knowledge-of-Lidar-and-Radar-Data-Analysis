@@ -1,11 +1,11 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title         : Notebook Template
-author        : Negin Sobhani,  SEA Software Engineering Assembly Committee
-copyright     : "2024"  # Copyright year to be placed in the footer
-logo          : assets/iss2025.png  # Path to a logo image
-email         : "negins@ucar.edu"
+title         : Improved Accessibility and Community Knowledge of Lidar and Radar Data Analysis
+author        : Jennifer DeHart, Ana Victoria Espinoza, Brenda Javornik, Julien Chastang
+copyright     : "2025"  # Copyright year to be placed in the footer
+#logo          : assets/iss2025.png  # Path to a logo image
+email         : "jcdehart@colostate.edu"
 
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
@@ -46,7 +46,7 @@ latex:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/UCAR-SEA/SEA-ISS-Template  # Online location of your book
+  url: https://github.com/UCAR-SEA/SEA-ISS-2025-Improved-Accessibility-and-Community-Knowledge-of-Lidar-and-Radar-Data-Analysis  # Online location of your book
   #path_to_book:  # Optional path to your book, relative to the repository root
   branch: main  # Which branch of the repository should be used when creating links (optional)
 
@@ -75,7 +75,7 @@ sphinx:
     bibtex_bibfiles: references.bib
     html_theme_options:
       home_page_in_toc: true
-      repository_url: https://github.com/UCAR-SEA/SEA-ISS-Template # Online location of your book
+      repository_url: https://github.com/UCAR-SEA/SEA-ISS-2025-Improved-Accessibility-and-Community-Knowledge-of-Lidar-and-Radar-Data-Analysis # Online location of your book
       repository_branch: main  
       navbar_align: right
       use_issues_button: true
