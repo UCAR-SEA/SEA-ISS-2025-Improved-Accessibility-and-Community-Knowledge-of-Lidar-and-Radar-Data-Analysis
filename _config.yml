@@ -65,6 +65,8 @@ html:
     utterances              : false
   announcement              : "test test test!" # A banner announcement at the top of the site.
 
+bibtex_bibfiles:
+  - references.bib
 
 sphinx:
   config:
