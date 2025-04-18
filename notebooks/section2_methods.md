@@ -9,7 +9,7 @@ The Zero to JupyterHub with Kubernetes project {cite}`zerotojupyterhub` is a
 mature project which enables administrators to quickly and easily deploy a
 JupyterHub server, allowing users to launch single user JupterLab servers and
 make use of a powerful ecosystem of tools. This is all accomplished on the back
-of the jetstream-kubespray project {cite}`zonca2018jupyter` which fascilitates
+of the jetstream-kubespray project {cite}`zonca2023kubespray` which facilitates
 the provisioning of the cyberinfrastructure and the deployment of the Kubernetes
 (K8s) cluster. The following sub-sections will discuss: the advantages of
 containerization, the cluster's architecture, and the reasoning behind various
@@ -216,9 +216,10 @@ JupyterHub-based science gateway. As virtual desktop functionality was desired
 by both the NSF Unidata Program Center and the LROSE project, NSF Unidata
 developers worked to bring this technology to both project's gateways.
 
-The team built upon NSF Unidata's CloudStream project and adapted the techniques
-laid out there to a JupyterLab environment. This new jupyter-with-vnc project
-makes use of several key technologies:
+The team built upon NSF Unidata's CloudStream project {cite}`cloudstream2016`
+and adapted the techniques laid out there to a JupyterLab environment. This new
+jupyter-with-vnc project {cite}`jupyterwithvnc` makes use of several key
+technologies:
 
 1) Xvfb (X Virtual Frame Buffer): a virtual X server for use when there is not a
    physical display attached to a system
