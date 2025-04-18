@@ -28,7 +28,7 @@ including the LROSE suite of software and packages managed via the `conda` (or
 visitors do not need to worry about installing software themselves, a task that
 can take valuable time and effort to troubleshoot across a variety of different
 operating systems and architectures should something go wrong, effectively
-eliminating the "well it worked on my machine" problem. In addition, gateway
+eliminating the "well, it worked on my machine" problem. In addition, gateway
 users are allocated `10GB` of persistent storage space in their home
 directories, enough for basic data analysis and visualization. Included in their
 home directory is a clone of the lrose-hub repository {cite}`lrosehub2024`,
@@ -51,7 +51,7 @@ advantages, we use Jetstream-Kubespray, which has two primary components:
 After setting some parameters in a Terraform variable file, most importantly the
 number of virtual machines (VMs, or nodes) and their "flavor" (relating to CPU and RAM),
 Terraform will then interact with JS2 to create the virtual machines, networks,
-attach IPs, open ports, etc.. We then run some ansible "playbooks", a set of
+attach IPs, open ports, etc. We then run some ansible "playbooks", a set of
 instructions codified in yaml files, which are provided by the
 Jetstream-Kubespray project to deploy Kubernetes on top of the newly created
 infrastructure. This process involves applying security updates, downloading and
@@ -145,7 +145,7 @@ used to deploy clusters, and how Kubernetes administrative procedures were used
 to dedicate a node to core JupyterHub components. In addition, a standing set of
 nodes are made available to accommodate a certain number of gateway visitors.
 However, when the gateway is not receiving heavy traffic, these nodes are
-unused, an idling away SUs. This can be problematic, especially for Jetstream2
+unused, and idling away SUs. This can be problematic, especially for Jetstream2
 users with smaller allocations.
 
 We developed a script to help monitor our SU usage and better make informed
@@ -156,7 +156,7 @@ will query Jetstream2's `openstack` interface for a token which can then be used
 to request allocation information via an API {cite}`js2accountingapi`. Current
 SU usage and our total allocated SUs are included as part of the retrieved
 information, which is then stored in a `.csv` file. This data is then used to
-construct a basic linear model and forecast a SU surplus or deficit at the end
+construct a basic linear model and forecast an SU surplus or deficit at the end
 date of our allocation. This "SU delta" can be used to predict how many
 additional nodes we can potentially add to the cluster, or how many must be
 removed from the cluster in order to stay within the SU bounds of our
