@@ -30,6 +30,6 @@ Tutorials take the form of Jupyter notebooks for use by individuals, in classroo
 
 Future plans include an "intermediate" level workshop on SAMURAI, one of the multi-Doppler wind applications of the LROSE suite. Additionally, work is currently underway to run GUI applications in the same browser-based JupyterLab environment. GUI applications for radar and lidar data visualization utilize the QT framework and present unique technical challenges. The techniques to accomplish GUI access have immediate applications for other GUI programs, such as NFS Unidata's IDV and their version of the AWIPS CAVE data visualization tools. Lastly, as demand for the resources found on the gateway increases, it becomes increasingly important to efficiently manage the Jetstream2 resources allocated by the ACCESS program. LROSE, NSF Unidata, San Diego Supercomputing Center (SDSC), and Indiana University staff are working together to deploy and evaluate Kubernetes cluster auto-scaling. With autoscaling, resources will no longer sit idle while awaiting new logins and will instead be provisioned on-demand. 
 
-**Keywords:** [Use keywords that describe the content of your paper, comma separated]
+**Keywords:** open source, radar, lidar, science gateway, LROSE
 
 **Acknowledgements**: [List any Acknowledgements]
