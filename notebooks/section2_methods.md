@@ -130,7 +130,7 @@ following:
    in step 1)
 
 The final architecture for the Kubernetes cluster and JupyterHub on top of that
-is shown in {numref}`jetstream-architecture`.
+is shown in {numref}`jupyter-architecture`.
 
 ```{figure} ./images/jupyterhub-k8s-arch-with-core-one-user.png
 :name: jupyter-architecture
