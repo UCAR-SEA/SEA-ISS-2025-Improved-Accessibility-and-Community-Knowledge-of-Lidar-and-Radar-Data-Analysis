@@ -72,9 +72,13 @@ Kubernetes equivalent of a `.deb` or `.rpm` package to install JupyterHub. The
 configuration for JupyterHub is encoded in a `yaml` file, and it is in this file
 that we can denote 
 
-This deployment procedure is outlined in the figure below.
+This deployment procedure is outlined in {numref}`jetstream-kubespray`.
 
-![Jetstream Kubespray](./images/jetstream-kubespray-jhub.png)
+```{figure} ./images/jetstream-kubespray-jhub.png
+:name: jetstream-kubespray
+
+Jetstream Kubespray.
+```
 
 Before allowing access to the gateway, several more tasks must be accomplished:
 
@@ -124,9 +128,13 @@ following:
    in step 1)
 
 The final architecture for the Kubernetes cluster and JupyterHub on top of that
-is shown in the figure below.
+is shown in {numref}`jetstream-architecture`.
 
-![JupyterHub Cluster Architecture](./images/jupyterhub-k8s-arch-with-core-one-user.png)
+```{figure} ./images/jupyterhub-k8s-arch-with-core-one-user.png
+:name: jupyter-architecture
+
+JupyterHub Cluster Architecture.
+```
 
 
 ## Allocation Management
@@ -238,9 +246,18 @@ access the noVNC client from behind the authentication and security mechanisms
 set in place by JupyterHub, as well as adding a convenient "Virtual-Desktop"
 Launcher card. Science gateway users are now able to use established
 visualization software such as LROSE's HawkEye, and NSF Unidata's Integrated
-Data Viewer. Example images are shown below.
+Data Viewer. Example images are shown in {numref}`jupyterlab-launcher` and {numref}`lrose-vnc`.
 
-![JupyterLab Launcher Interface](./images/jupyter-with-vnc-launcher.png)
+```{figure} ./images/jupyter-with-vnc-launcher.png
+:name: jupyterlab-launcher
 
-![LROSE HawkEye](./images/lrose-hawkeye-vnc.png)
+JupyterLab Launcher Interface.
+```
+
+```{figure} ./images/lrose-hawkeye-vnc.png
+:name: lrose-vnc
+
+HawkEye launched via the noVNC client.
+```
+
 
