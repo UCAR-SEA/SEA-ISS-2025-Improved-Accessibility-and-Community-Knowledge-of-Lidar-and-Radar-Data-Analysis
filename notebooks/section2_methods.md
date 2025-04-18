@@ -70,7 +70,9 @@ Lastly, we use standard Kubernetes workflows to deploy containers and services.
 Importantly, the Zero to JupyterHub project provides a `helm` chart, the
 Kubernetes equivalent of a `.deb` or `.rpm` package to install JupyterHub. The
 configuration for JupyterHub is encoded in a `yaml` file, and it is in this file
-that we can denote 
+that we can set important parameters such as: the custom JupyterLab container
+image and tag, authentication information, the CPU and RAM allocated per user,
+additional environment variables, commands to run on container startup, etc.
 
 This deployment procedure is outlined in {numref}`jetstream-kubespray`.
 
