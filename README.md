@@ -32,4 +32,4 @@ Future plans include an "intermediate" level workshop on SAMURAI, one of the mul
 
 **Keywords:** open source, radar, lidar, science gateway, LROSE
 
-**Acknowledgements**: [List any Acknowledgements]
+**Acknowledgements**: The authors would like to thank Michael Bell and Mike Dixon for their feedback on this work. The authors acknowledge NSF funding through grants AGS-2103776 and AGS-2103785. This work used Jetstream2 at Indiana University through allocation #EES200002 from the Advanced Cyberinfrastructure Coordination Ecosystem: Services & Support (ACCESS) program, which is supported by U.S. National Science Foundation grants #2138259, #2138286, #2138307, #2137603, and #2138296.
