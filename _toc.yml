@@ -7,6 +7,7 @@ parts:
       - file: notebooks/section1.ipynb
       - file: notebooks/section2.ipynb
       - file: notebooks/section3.ipynb
+      - file: notebooks/methods.md
   - caption: Bibliography
     chapters:
-      - file: notebooks/bibliography.ipynb
+      - file: notebooks/bibliography.md
