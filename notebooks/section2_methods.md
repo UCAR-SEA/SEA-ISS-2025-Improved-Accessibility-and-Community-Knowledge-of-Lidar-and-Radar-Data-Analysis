@@ -79,7 +79,9 @@ This deployment procedure is outlined in {numref}`jetstream-kubespray`.
 ```{figure} ./images/jetstream-kubespray-jhub.png
 :name: jetstream-kubespray
 
-Jetstream Kubespray.
+The different components of Jetstream-Kubespray, using Terraform to provision
+cloud infrastructure on Jetstream2, Ansible to to deploy Kubernetes, and finally
+Helm to install JupyterHub.
 ```
 
 Before allowing access to the gateway, several more tasks must be accomplished:
