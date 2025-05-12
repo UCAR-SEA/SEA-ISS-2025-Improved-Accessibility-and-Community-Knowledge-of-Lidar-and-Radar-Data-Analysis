@@ -183,13 +183,35 @@ Furthermore, if the cluster has been soft-scaled down and the gateway receives
 an unexpectedly large number of visitors, the user will be greeted with an
 "insufficient resources" error upon login. Recent advancements by the Jetstream2
 team to bring Openstack Magnum to their cloud will address this problem. Magnum
-is the Openstack project's version of "Kubernetes as a Service". In a similar
-fashion to how Jetstream2 users can easily request virtual machines, virtual
-networking infrastructure, and persistent storage, JS2 users can now request
-entire Kubernetes clusters with a small handful of commands
-{cite}`zonca2024magnum`. K8s clusters deployed via Magnum, which we refer to as
-Magnum clusters for simplicity, can be provisioned in a time as short as 10
-minutes, a massive improvement when compared to Kubespray.
+is the Openstack project's version of "Kubernetes as a Service" (KaaS). The "X as a
+Service" (XaaS) terminology is common to describe different capabilities of
+cloud service providers where the implementation details of the service are
+abstracted away from cloud consumers who are instead presented with an API,
+tool, or web dashboard in order to access the cloud functionality. As of the
+time of this paper's writing, Openstack
+[self-describes](https://www.openstack.org/software/) as providing
+"infrastrucutre-as-a-service" functionality.
+
+In a similar fashion to how Jetstream2 users can easily request virtual
+machines, virtual networking infrastructure, and persistent storage, they can
+now request entire Kubernetes clusters with a small handful of commands
+{cite}`zonca2024magnum`. Provisioning the necessary cyberinfrastructure and
+deploying Kubernetes "by hand" as is the case with Kubespray is no longer
+necessary, as this is abstracted away by Magnum KaaS. K8s clusters deployed via
+Magnum, which we refer to as Magnum clusters for simplicity, can be provisioned
+in a time as short as 10 minutes, a massive improvement when compared to
+Kubespray.
+
+NOTE: While the authors of this paper do not have a direct hand in managing
+Magnum on Jetstream2, we have been made aware through conversations with
+Jetstream2 administrators that this improvement is made possible by
+preconfiguring several virtual machine images (one for each available K8s
+version), which are then used to create VMs which are readily added to a new or
+existing K8s cluster. On the backend (i.e. the JS2 side), these clusters are
+ultimately managed by StackHPC's ClusterAPI. As this is second hand information,
+we urge the curious reader to [reach out to the Jetstream2
+team](https://jetstream-cloud.org/contact/index.html) for further and more
+accurate implementation details.
 
 In addition, Magnum clusters also have the option to enable cluster
 auto-scaling. With auto-scaling, gateway administrators can configure the
