@@ -28,8 +28,12 @@ including the LROSE suite of software and packages managed via the `conda` (or
 visitors do not need to worry about installing software themselves, a task that
 can take valuable time and effort to troubleshoot across a variety of different
 operating systems and architectures should something go wrong, effectively
-eliminating the "well, it worked on my machine" problem. In addition, gateway
-users are allocated `10GB` of persistent storage space in their home
+eliminating the "well, it worked on my machine" problem. The Dockerfile and
+necessary build files are found on the
+[lrose-circleci](https://github.com/NCAR/lrose-circleci/blob/master/.circleci/images/build/lrose-hub-2025.Dockerfile)
+repo on GitHub.
+
+Gateway users are allocated `10GB` of persistent storage space in their home
 directories, enough for basic data analysis and visualization. Included in their
 home directory is a clone of the lrose-hub repository {cite}`lrosehub2024`,
 which includes a multitude of tutorials focused on common workflows applied
