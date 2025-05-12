@@ -49,15 +49,15 @@ advantages, we use Jetstream-Kubespray, which has two primary components:
 2) Ansible, an automation technology
 
 After setting some parameters in a Terraform variable file, most importantly the
-number of virtual machines (VMs, or nodes) and their "flavor" (relating to CPU and RAM),
-Terraform will then interact with JS2 to create the virtual machines, networks,
-attach IPs, open ports, etc. We then run some ansible "playbooks", a set of
-instructions codified in yaml files, which are provided by the
-Jetstream-Kubespray project to deploy Kubernetes on top of the newly created
-infrastructure. This process involves applying security updates, downloading and
-installing all of the software required by Kubernetes, as well as automating
-some system administrative tasks such as copying over certificates and
-configuration files.
+number of virtual machines (referred to as VMs, or nodes) and their "flavor"
+(relating to CPU and RAM), Terraform will then interact with JS2 to create the
+virtual machines, networks, attach IPs, open network ports to traffic, etc. We
+then run some ansible "playbooks", a set of instructions codified in yaml files,
+which are provided by the Jetstream-Kubespray project to deploy Kubernetes on
+top of the newly created infrastructure. This process involves applying security
+updates, downloading and installing all of the software required by Kubernetes,
+as well as automating some system administrative tasks such as copying over
+certificates and configuration files.
 
 Aside from the initial deployment, Jetstream-Kubespray can also be used to
 destroy and "scale" the cluster. In this context, scaling refers to the addition
