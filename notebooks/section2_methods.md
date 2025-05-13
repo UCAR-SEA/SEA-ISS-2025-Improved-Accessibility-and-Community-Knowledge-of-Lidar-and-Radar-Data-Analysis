@@ -223,7 +223,11 @@ cluster with some minimum number of nodes to ensure quick gateway access. If the
 gateway receives a sudden large influx of users, the Magnum cluster will
 intelligently determine how many nodes to add to the cluster to ensure all
 visitors have resources. When users log out, the node will be destroyed and
-removed from the cluster, ensuring that resources do not idle away SUs.
+removed from the cluster, ensuring that resources do not idle away SUs. While
+cluster auto-scaling on its own does not have fail-safes to ensure we do not go
+"over-budget" on our allocation, the increased SU usage efficiency in
+conjunction with our established SU monitoring method allows us to stretch our
+allocated SUs further and ultimately provide gateway access to more users.
 
 The total amount of time from login to JupyterLab interface for a user who has
 triggered the auto-scaler is about five minutes and does not require
