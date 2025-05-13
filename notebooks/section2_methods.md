@@ -43,14 +43,15 @@ the newest versions of new and existing tutorials. In addition, a large shared
 drive is made available to gateway users so they may explore a larger collection
 of data sets for research or teaching purposes.
 
-Kubernetes is a "container orchestration engine" which takes on the
-responsibility of managing the creation of new containers, the networking
-between them, and interactions between containers and cloud providers, to name a
-few. To deploy Kubernetes on Jetstream2 and benefit from the aforementioned
-advantages, we use Jetstream-Kubespray, which has two primary components:
+[Kubernetes](https://kubernetes.io) is a "container orchestration engine" which
+takes on the responsibility of managing the creation of new containers, the
+networking between them, and interactions between containers and cloud
+providers, to name a few {cite}`kubernetes`. To deploy Kubernetes on Jetstream2
+and benefit from the aforementioned advantages, we use Jetstream-Kubespray,
+which has two primary components:
 
-1) Terraform, an Infrastructure as Code technology
-2) Ansible, an automation technology
+1) [Terraform](https://terraform.io), an Infrastructure as Code technology {cite}`terraform`
+2) [Ansible](https://www.redhat.com/en/ansible-collaborative), an automation technology {cite}`ansible`
 
 After setting some parameters in a Terraform variable file, most importantly the
 number of virtual machines (referred to as VMs, or nodes) and their "flavor"
@@ -71,12 +72,13 @@ with large scaling procedures of multiple nodes taking an hour or more to run to
 completion.
 
 Lastly, we use standard Kubernetes workflows to deploy containers and services.
-Importantly, the Zero to JupyterHub project provides a `helm` chart, the
-Kubernetes equivalent of a `.deb` or `.rpm` package to install JupyterHub. The
-configuration for JupyterHub is encoded in a `yaml` file, and it is in this file
-that we can set important parameters such as: the custom JupyterLab container
-image and tag, authentication information, the CPU and RAM allocated per user,
-additional environment variables, commands to run on container startup, etc.
+Importantly, the Zero to JupyterHub project provides a [helm](https://helm.sh/)
+chart, the Kubernetes equivalent of a `.deb` or `.rpm` package {cite}`helm`, to
+install JupyterHub. The configuration for JupyterHub is encoded in a `yaml`
+file, and it is in this file that we can set important parameters such as: the
+custom JupyterLab container image and tag, authentication information, the CPU
+and RAM allocated per user, additional environment variables, commands to run on
+container startup, etc.
 
 This deployment procedure is outlined in {numref}`jetstream-kubespray`.
 
@@ -186,15 +188,16 @@ This method, however, still requires manual intervention by a software engineer.
 Furthermore, if the cluster has been soft-scaled down and the gateway receives
 an unexpectedly large number of visitors, the user will be greeted with an
 "insufficient resources" error upon login. Recent advancements by the Jetstream2
-team to bring Openstack Magnum to their cloud will address this problem. Magnum
-is the Openstack project's version of "Kubernetes as a Service" (KaaS). The "X as a
-Service" (XaaS) terminology is common to describe different capabilities of
-cloud service providers where the implementation details of the service are
-abstracted away from cloud consumers who are instead presented with an API,
-tool, or web dashboard in order to access the cloud functionality. As of the
-time of this paper's writing, Openstack
-[self-describes](https://www.openstack.org/software/) as providing
-"infrastrucutre-as-a-service" functionality.
+team to bring [Openstack
+Magnum](https://www.openstack.org/software/releases/dalmatian/components/magnum)
+{cite}`magnum` to their cloud will address this problem. Magnum is the Openstack
+project's version of "Kubernetes as a Service" (KaaS). The "X as a Service"
+(XaaS) terminology is common to describe different capabilities of cloud service
+providers where the implementation details of the service are abstracted away
+from cloud consumers who are instead presented with an API, tool, or web
+dashboard in order to access the cloud functionality. As of the time of this
+paper's writing, Openstack [self-describes](https://www.openstack.org/software/)
+as providing "infrastrucutre-as-a-service" functionality.
 
 In a similar fashion to how Jetstream2 users can easily request virtual
 machines, virtual networking infrastructure, and persistent storage, they can
@@ -263,13 +266,17 @@ and adapted the techniques laid out there to a JupyterLab environment. This new
 jupyter-with-vnc project {cite}`jupyterwithvnc` makes use of several key
 technologies:
 
-1) Xvfb (X Virtual Frame Buffer): a virtual X server for use when there is not a
-   physical display attached to a system
-2) XFCE4: a minimalistic Linux desktop environment
-3) x11vnc: a VNC (Virtual Network Computing) virtual desktop server
-4) noVNC: a VNC client
-5) jupyter-server-proxy: a proxy server for JupyterLab, allowing one to access
-   services running alongside JupyterLab using the JupyterLab URL
+1) [Xvfb](https://www.x.org/archive/X11R7.7/doc/man/man1/Xvfb.1.xhtml) (X
+   Virtual Frame Buffer): a virtual X server for use when there is not a
+   physical display attached to a system {cite}`xvfb`
+2) [XFCE4](https://www.xfce.org): a minimalistic Linux desktop environment
+   {cite}`xfce`
+3) [x11vnc](https://github.com/LibVNC/x11vnc): a VNC (Virtual Network Computing)
+   virtual desktop server {cite}`x11vnc`
+4) [noVNC](https://novnc.com/info.html): a VNC client {cite}`novnc`
+5) [jupyter-server-proxy](https://github.com/jupyterhub/jupyter-server-proxy): a
+   proxy server for JupyterLab, allowing one to access services running
+   alongside JupyterLab using the JupyterLab URL {cite}`jupyterserverproxy`
 
 Each of these technologies were installed and configured in the same JupyterLab
 image running in the gateway. The virtual X server provides the XFCE4 desktop
