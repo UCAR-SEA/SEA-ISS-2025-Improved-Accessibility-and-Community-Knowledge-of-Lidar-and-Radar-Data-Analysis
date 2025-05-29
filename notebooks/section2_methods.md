@@ -28,8 +28,12 @@ including the LROSE suite of software and packages managed via the `conda` (or
 visitors do not need to worry about installing software themselves, a task that
 can take valuable time and effort to troubleshoot across a variety of different
 operating systems and architectures should something go wrong, effectively
-eliminating the "well, it worked on my machine" problem. In addition, gateway
-users are allocated `10GB` of persistent storage space in their home
+eliminating the "well, it worked on my machine" problem. The Dockerfile and
+necessary build files are found on the
+[lrose-circleci](https://github.com/NCAR/lrose-circleci/blob/master/.circleci/images/build/lrose-hub-2025.Dockerfile)
+repo on GitHub.
+
+Gateway users are allocated `10GB` of persistent storage space in their home
 directories, enough for basic data analysis and visualization. Included in their
 home directory is a clone of the lrose-hub repository {cite}`lrosehub2024`,
 which includes a multitude of tutorials focused on common workflows applied
@@ -39,25 +43,26 @@ the newest versions of new and existing tutorials. In addition, a large shared
 drive is made available to gateway users so they may explore a larger collection
 of data sets for research or teaching purposes.
 
-Kubernetes is a "container orchestration engine" which takes on the
-responsibility of managing the creation of new containers, the networking
-between them, and interactions between containers and cloud providers, to name a
-few. To deploy Kubernetes on Jetstream2 and benefit from the aforementioned
-advantages, we use Jetstream-Kubespray, which has two primary components:
+[Kubernetes](https://kubernetes.io) is a "container orchestration engine" which
+takes on the responsibility of managing the creation of new containers, the
+networking between them, and interactions between containers and cloud
+providers, to name a few {cite}`kubernetes`. To deploy Kubernetes on Jetstream2
+and benefit from the aforementioned advantages, we use Jetstream-Kubespray,
+which has two primary components:
 
-1) Terraform, an Infrastructure as Code technology
-2) Ansible, an automation technology
+1) [Terraform](https://terraform.io), an Infrastructure as Code technology {cite}`terraform`
+2) [Ansible](https://www.redhat.com/en/ansible-collaborative), an automation technology {cite}`ansible`
 
 After setting some parameters in a Terraform variable file, most importantly the
-number of virtual machines (VMs, or nodes) and their "flavor" (relating to CPU and RAM),
-Terraform will then interact with JS2 to create the virtual machines, networks,
-attach IPs, open ports, etc. We then run some ansible "playbooks", a set of
-instructions codified in yaml files, which are provided by the
-Jetstream-Kubespray project to deploy Kubernetes on top of the newly created
-infrastructure. This process involves applying security updates, downloading and
-installing all of the software required by Kubernetes, as well as automating
-some system administrative tasks such as copying over certificates and
-configuration files.
+number of virtual machines (referred to as VMs, or nodes) and their "flavor"
+(relating to CPU and RAM), Terraform will then interact with JS2 to create the
+virtual machines, networks, attach IPs, open network ports to traffic, etc. We
+then run some ansible "playbooks", a set of instructions codified in yaml files,
+which are provided by the Jetstream-Kubespray project to deploy Kubernetes on
+top of the newly created infrastructure. This process involves applying security
+updates, downloading and installing all of the software required by Kubernetes,
+as well as automating some system administrative tasks such as copying over
+certificates and configuration files.
 
 Aside from the initial deployment, Jetstream-Kubespray can also be used to
 destroy and "scale" the cluster. In this context, scaling refers to the addition
@@ -67,19 +72,22 @@ with large scaling procedures of multiple nodes taking an hour or more to run to
 completion.
 
 Lastly, we use standard Kubernetes workflows to deploy containers and services.
-Importantly, the Zero to JupyterHub project provides a `helm` chart, the
-Kubernetes equivalent of a `.deb` or `.rpm` package to install JupyterHub. The
-configuration for JupyterHub is encoded in a `yaml` file, and it is in this file
-that we can set important parameters such as: the custom JupyterLab container
-image and tag, authentication information, the CPU and RAM allocated per user,
-additional environment variables, commands to run on container startup, etc.
+Importantly, the Zero to JupyterHub project provides a [helm](https://helm.sh/)
+chart, the Kubernetes equivalent of a `.deb` or `.rpm` package {cite}`helm`, to
+install JupyterHub. The configuration for JupyterHub is encoded in a `yaml`
+file, and it is in this file that we can set important parameters such as: the
+custom JupyterLab container image and tag, authentication information, the CPU
+and RAM allocated per user, additional environment variables, commands to run on
+container startup, etc.
 
 This deployment procedure is outlined in {numref}`jetstream-kubespray`.
 
 ```{figure} ./images/jetstream-kubespray-jhub.png
 :name: jetstream-kubespray
 
-Jetstream Kubespray.
+The different components of Jetstream-Kubespray, using Terraform to provision
+cloud infrastructure on Jetstream2, Ansible to to deploy Kubernetes, and finally
+Helm to install JupyterHub.
 ```
 
 Before allowing access to the gateway, several more tasks must be accomplished:
@@ -180,14 +188,37 @@ This method, however, still requires manual intervention by a software engineer.
 Furthermore, if the cluster has been soft-scaled down and the gateway receives
 an unexpectedly large number of visitors, the user will be greeted with an
 "insufficient resources" error upon login. Recent advancements by the Jetstream2
-team to bring Openstack Magnum to their cloud will address this problem. Magnum
-is the Openstack project's version of "Kubernetes as a Service". In a similar
-fashion to how Jetstream2 users can easily request virtual machines, virtual
-networking infrastructure, and persistent storage, JS2 users can now request
-entire Kubernetes clusters with a small handful of commands
-{cite}`zonca2024magnum`. K8s clusters deployed via Magnum, which we refer to as
-Magnum clusters for simplicity, can be provisioned in a time as short as 10
-minutes, a massive improvement when compared to Kubespray.
+team to bring [Openstack
+Magnum](https://www.openstack.org/software/releases/dalmatian/components/magnum)
+{cite}`magnum` to their cloud will address this problem. Magnum is the Openstack
+project's version of "Kubernetes as a Service" (KaaS). The "X as a Service"
+(XaaS) terminology is common to describe different capabilities of cloud service
+providers where the implementation details of the service are abstracted away
+from cloud consumers who are instead presented with an API, tool, or web
+dashboard in order to access the cloud functionality. As of the time of this
+paper's writing, Openstack [self-describes](https://www.openstack.org/software/)
+as providing "infrastrucutre-as-a-service" functionality.
+
+In a similar fashion to how Jetstream2 users can easily request virtual
+machines, virtual networking infrastructure, and persistent storage, they can
+now request entire Kubernetes clusters with a small handful of commands
+{cite}`zonca2024magnum`. Provisioning the necessary cyberinfrastructure and
+deploying Kubernetes "by hand" as is the case with Kubespray is no longer
+necessary, as this is abstracted away by Magnum KaaS. K8s clusters deployed via
+Magnum, which we refer to as Magnum clusters for simplicity, can be provisioned
+in a time as short as 10 minutes, a massive improvement when compared to
+Kubespray.
+
+NOTE: While the authors of this paper do not have a direct hand in managing
+Magnum on Jetstream2, we have been made aware through conversations with
+Jetstream2 administrators that this improvement is made possible by
+preconfiguring several virtual machine images (one for each available K8s
+version), which are then used to create VMs which are readily added to a new or
+existing K8s cluster. On the backend (i.e. the JS2 side), these clusters are
+ultimately managed by StackHPC's ClusterAPI. As this is second hand information,
+we urge the curious reader to [reach out to the Jetstream2
+team](https://jetstream-cloud.org/contact/index.html) for further and more
+accurate implementation details.
 
 In addition, Magnum clusters also have the option to enable cluster
 auto-scaling. With auto-scaling, gateway administrators can configure the
@@ -195,7 +226,11 @@ cluster with some minimum number of nodes to ensure quick gateway access. If the
 gateway receives a sudden large influx of users, the Magnum cluster will
 intelligently determine how many nodes to add to the cluster to ensure all
 visitors have resources. When users log out, the node will be destroyed and
-removed from the cluster, ensuring that resources do not idle away SUs.
+removed from the cluster, ensuring that resources do not idle away SUs. While
+cluster auto-scaling on its own does not have fail-safes to ensure we do not go
+"over-budget" on our allocation, the increased SU usage efficiency in
+conjunction with our established SU monitoring method allows us to stretch our
+allocated SUs further and ultimately provide gateway access to more users.
 
 The total amount of time from login to JupyterLab interface for a user who has
 triggered the auto-scaler is about five minutes and does not require
@@ -231,13 +266,17 @@ and adapted the techniques laid out there to a JupyterLab environment. This new
 jupyter-with-vnc project {cite}`jupyterwithvnc` makes use of several key
 technologies:
 
-1) Xvfb (X Virtual Frame Buffer): a virtual X server for use when there is not a
-   physical display attached to a system
-2) XFCE4: a minimalistic Linux desktop environment
-3) x11vnc: a VNC (Virtual Network Computing) virtual desktop server
-4) noVNC: a VNC client
-5) jupyter-server-proxy: a proxy server for JupyterLab, allowing one to access
-   services running alongside JupyterLab using the JupyterLab URL
+1) [Xvfb](https://www.x.org/archive/X11R7.7/doc/man/man1/Xvfb.1.xhtml) (X
+   Virtual Frame Buffer): a virtual X server for use when there is not a
+   physical display attached to a system {cite}`xvfb`
+2) [XFCE4](https://www.xfce.org): a minimalistic Linux desktop environment
+   {cite}`xfce`
+3) [x11vnc](https://github.com/LibVNC/x11vnc): a VNC (Virtual Network Computing)
+   virtual desktop server {cite}`x11vnc`
+4) [noVNC](https://novnc.com/info.html): a VNC client {cite}`novnc`
+5) [jupyter-server-proxy](https://github.com/jupyterhub/jupyter-server-proxy): a
+   proxy server for JupyterLab, allowing one to access services running
+   alongside JupyterLab using the JupyterLab URL {cite}`jupyterserverproxy`
 
 Each of these technologies were installed and configured in the same JupyterLab
 image running in the gateway. The virtual X server provides the XFCE4 desktop
