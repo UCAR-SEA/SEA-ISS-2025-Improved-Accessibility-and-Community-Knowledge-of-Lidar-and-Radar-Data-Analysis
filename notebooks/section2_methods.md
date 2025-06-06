@@ -7,7 +7,7 @@ educators to cyberinfrastructure. In September 2024, the LROSE group was granted
 {cite}`hancock2021jetstream2`, an allocation which expires in September 2025.
 The Zero to JupyterHub with Kubernetes project {cite}`zerotojupyterhub` is a
 mature project which enables administrators to quickly and easily deploy a
-JupyterHub server, allowing users to launch single user JupterLab servers and
+JupyterHub server, allowing users to launch single user JupyterLab servers and
 make use of a powerful ecosystem of tools. This is all accomplished on the back
 of the jetstream-kubespray project {cite}`zonca2023kubespray` which facilitates
 the provisioning of the cyberinfrastructure and the deployment of the Kubernetes
@@ -86,7 +86,7 @@ This deployment procedure is outlined in {numref}`jetstream-kubespray`.
 :name: jetstream-kubespray
 
 The different components of Jetstream-Kubespray, using Terraform to provision
-cloud infrastructure on Jetstream2, Ansible to to deploy Kubernetes, and finally
+cloud infrastructure on Jetstream2, Ansible to deploy Kubernetes, and finally
 Helm to install JupyterHub.
 ```
 
@@ -197,7 +197,7 @@ providers where the implementation details of the service are abstracted away
 from cloud consumers who are instead presented with an API, tool, or web
 dashboard in order to access the cloud functionality. As of the time of this
 paper's writing, Openstack [self-describes](https://www.openstack.org/software/)
-as providing "infrastrucutre-as-a-service" functionality.
+as providing "infrastructure-as-a-service" functionality.
 
 In a similar fashion to how Jetstream2 users can easily request virtual
 machines, virtual networking infrastructure, and persistent storage, they can
@@ -245,7 +245,7 @@ heterogeneous clusters, i.e. clusters composed of more than 1 flavor of node. By
 creating a nodegroup of `m3.quad` nodes (4 vCPUs, 15GB RAM), and another of
 `m3.medium` nodes (8 vCPUs, 32 GB RAM), we can give gateway users the option to
 select between a "low power" and "high power" compute profile. This on-demand
-selection of compute power allows for a greater diversity of gateway user,
+selection of compute power allows for a greater diversity of gateway users,
 ranging from the absolute beginner who is learning the ropes, to the faculty
 researcher who is analysing large data sets. Other opportunities are being
 explored, one of which is described in the following section.
