@@ -11,7 +11,7 @@ JupyterHub server, allowing users to launch single user JupyterLab servers and
 make use of a powerful ecosystem of tools. This is all accomplished on the back
 of the jetstream-kubespray project {cite}`zonca2023kubespray` which facilitates
 the provisioning of the cyberinfrastructure and the deployment of the Kubernetes
-(K8s) cluster. The following sub-sections will discuss: the advantages of
+(K8s) cluster. The following subsections will discuss: the advantages of
 containerization, the cluster's architecture, and the reasoning behind various
 design choices; methods which have been developed and applied to ensure more
 efficient use of JS2 resources; and finally, a new development that allows for
@@ -40,7 +40,7 @@ which includes a multitude of tutorials focused on common workflows applied
 using LROSE tools. The newest commits to this repository are automatically
 pulled when a user logs in to their server, ensuring that they have access to
 the newest versions of new and existing tutorials. In addition, a large shared
-drive is made available to gateway users so they may explore a larger collection
+drive is made available to gateway users, so they may explore a larger collection
 of data sets for research or teaching purposes.
 
 [Kubernetes](https://kubernetes.io) is a "container orchestration engine" which
@@ -57,7 +57,7 @@ After setting some parameters in a Terraform variable file, most importantly the
 number of virtual machines (referred to as VMs, or nodes) and their "flavor"
 (relating to CPU and RAM), Terraform will then interact with JS2 to create the
 virtual machines, networks, attach IPs, open network ports to traffic, etc. We
-then run some ansible "playbooks", a set of instructions codified in yaml files,
+then run some Ansible "playbooks", a set of instructions codified in YAML files,
 which are provided by the Jetstream-Kubespray project to deploy Kubernetes on
 top of the newly created infrastructure. This process involves applying security
 updates, downloading and installing all of the software required by Kubernetes,
@@ -67,7 +67,7 @@ certificates and configuration files.
 Aside from the initial deployment, Jetstream-Kubespray can also be used to
 destroy and "scale" the cluster. In this context, scaling refers to the addition
 or removal of nodes from the cluster. It is noted, however, that both the
-initial deployment and the scaling of the cluster can be a time consuming task,
+initial deployment and the scaling of the cluster can be a time-consuming task,
 with large scaling procedures of multiple nodes taking an hour or more to run to
 completion.
 
@@ -98,7 +98,7 @@ Before allowing access to the gateway, several more tasks must be accomplished:
 
 We acquire a free SSL/TLS certificate from the LetsEncrypt certificate
 authority. This is made simple by Kubernetes, where the process is as easy as
-applying a handful of Cert-Manager {cite}`certmanager` "manifests" (yaml files
+applying a handful of Cert-Manager {cite}`certmanager` "manifests" (YAML files
 used by K8s to specify resources to deploy). In addition to obtaining the
 certificate, cert-manager will also automatically renew the certificates to
 continually ensure secure connections to the gateway.
@@ -172,7 +172,7 @@ additional nodes we can potentially add to the cluster, or how many must be
 removed from the cluster in order to stay within the SU bounds of our
 allocation.
 
-As an alternative to the time consuming scaling procedure mentioned in the
+As an alternative to the time-consuming scaling procedure mentioned in the
 previous section, which fully destroys and removes nodes from the cluster, we
 apply the method of "soft-scaling" first described in
 {cite}`zonca2024softscaling` and previously reported as being used by our team
