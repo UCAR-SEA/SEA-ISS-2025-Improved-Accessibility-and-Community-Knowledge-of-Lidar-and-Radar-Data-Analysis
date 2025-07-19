@@ -1,22 +1,20 @@
-<img src="assets/2024_SEA_Logo2.png" width="40%" align="center">
-
 # Improved Accessibility and Community Knowledge of Lidar and Radar Data Analysis
 
 [![JupyterBook](https://github.com/UCAR-SEA/SEA-ISS-Template/actions/workflows/deploy.yml/badge.svg)](https://github.com/UCAR-SEA/SEA-ISS-Template/actions/workflows/deploy.yml)
 [![Made withJupyter](https://img.shields.io/badge/Made%20with-Jupyter-green?style=flat-square&logo=Jupyter&color=green)](https://jupyter.org/try)
 [![DOI](https://zenodo.org/badge/960639114.svg)](https://doi.org/10.5281/zenodo.15660204)
 
-**Authors**: Jennifer DeHart (1), Ana Victoria Espinoza (2), Brenda Javornik (3), Julien Chastang (2)
+**Authors**: Jennifer DeHart <sup>1</sup>, Ana Victoria Espinoza <sup>2</sup>, Brenda Javornik <sup>3</sup>, and Julien Chastang <sup>2</sup>
 
-1) Department of Atmospheric Science
+1. Department of Atmospheric Science
    Colorado State University
    Fort Collins, CO USA
 
-2) NSF Unidata Program Center
+2. NSF Unidata Program Center
    UCP, UCAR
    Boulder, CO USA
 
-3) Earth Observing Laboratory
+3. Earth Observing Laboratory
    NSF NCAR, UCAR
    Boulder, CO USA
 
