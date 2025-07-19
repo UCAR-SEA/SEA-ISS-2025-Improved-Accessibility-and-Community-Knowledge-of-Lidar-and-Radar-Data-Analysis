@@ -2,9 +2,9 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title         : Improved Accessibility and Community Knowledge of Lidar and Radar Data Analysis
-author        : Jennifer DeHart, Ana Victoria Espinoza, Brenda Javornik, Julien Chastang
+author        : Jennifer DeHart, Ana Victoria Espinoza, Brenda Javornik, and Julien Chastang
 copyright     : "2025"  # Copyright year to be placed in the footer
-#logo          : assets/iss2025.png  # Path to a logo image
+logo          : assets/iss2025.png  # Path to a logo image
 email         : "jcdehart@colostate.edu"
 
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
@@ -63,7 +63,6 @@ html:
   comments:
     hypothesis              : false
     utterances              : false
-  announcement              : "test test test!" # A banner announcement at the top of the site.
 
 bibtex_bibfiles:
   - references.bib
@@ -84,33 +83,19 @@ sphinx:
       use_edit_page_button: true
       use_download_button: true
       use_fullscreen_button: true
-      use_binder_button: true
       github_url: https://github.com/UCAR-SEA
-      launch_buttons:
-        binderhub_url: https://mybinder.org
-        notebook_interface: jupyterlab
       extra_navbar: |
         <div>Powered by <a href="https://jupyterbook.org">Jupyter Book</a></div>Theme adapted from <a href="https://projectpythia.org/">Project Pythia</a>
 
       navbar_links:
         - name: SEA Home
           url: https://sea.ucar.edu
-        - name: SEA Conference
-          url: https://sea.ucar.edu/iss/
-        - name: Contact Us
-          url: https://sea.ucar.edu/community/#get-involved
-
+        - name: ISS Conference
+          url: https://sea.ucar.edu/iss/2025/
+        - name: ISS Proceedings
+          url: https://sea.ucar.edu/iss/2025-proceedings
 
     html_sidebars:
       banner: []
       standalone: []
 
-    extra_extensions:
-    - ablog
-    - sphinx_click.ext
-    - sphinx.ext.autodoc
-    - sphinx.ext.intersphinx
-    - sphinxcontrib.bibtex
-    - sphinxcontrib.youtube
-
-  
