@@ -1,4 +1,4 @@
-## Conclusions
+# Conclusions
 
 The LROSE Science Gateway was developed to improve accessibility to weather radar and lidar analysis tools. By deploying JupyterHub servers on NSF Jetstream2 cloud resources, we have simplified the procedure for hosting educational opportunities for students and community members. The LROSE Science Gateway provides a variety of tutorials in a format widely-used by the community and works to balance ease of use with guided instruction.
 
