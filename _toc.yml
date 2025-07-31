@@ -2,12 +2,10 @@ format: jb-book
 root: README
 
 parts:
-  - caption: Body
+  - caption: Contents
     chapters:
       - file: notebooks/section1_introduction.md 
       - file: notebooks/section2_methods.md
       - file: notebooks/section3_gateway_capabilities.md
       - file: notebooks/section4_conclusions.md
-  - caption: Bibliography
-    chapters:
       - file: notebooks/bibliography.md
