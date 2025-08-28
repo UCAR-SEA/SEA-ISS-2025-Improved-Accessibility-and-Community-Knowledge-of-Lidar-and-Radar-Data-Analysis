@@ -2,7 +2,8 @@
 
 [![JupyterBook](https://github.com/UCAR-SEA/SEA-ISS-Template/actions/workflows/deploy.yml/badge.svg)](https://github.com/UCAR-SEA/SEA-ISS-Template/actions/workflows/deploy.yml)
 [![Made withJupyter](https://img.shields.io/badge/Made%20with-Jupyter-green?style=flat-square&logo=Jupyter&color=green)](https://jupyter.org/try)
-[![DOI](https://zenodo.org/badge/960639114.svg)](https://doi.org/10.5281/zenodo.15660204)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16987131.svg)](https://doi.org/10.5281/zenodo.16987131)
+
 
 **Authors**: Jennifer DeHart <sup>1</sup>, Ana Victoria Espinoza <sup>2</sup>, Brenda Javornik <sup>3</sup>, and Julien Chastang <sup>2</sup>
 
